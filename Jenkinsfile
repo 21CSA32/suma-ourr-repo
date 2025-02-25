@@ -42,7 +42,7 @@ pipeline {
                 withSonarQubeEnv('sonar7.0') {  // Ensure 'sonar7.0' matches the SonarQube configuration in Jenkins 
                     withCredentials([string(credentialsId: 'sonartoken', variable: 'SONAR_AUTH_TOKEN')]) { 
                         sh ''' 
-                        ${SONAR_SCANNER_HOME}/bin/sonar-scanner \ 
+                        ${SONAR_SCANNER_HOME}/bin/sonar-scanner  
                             -Dsonar.projectKey=MavenProject \ 
                             -Dsonar.projectName=MavenProject \ 
                             -Dsonar.projectVersion=1.0 \ 
