@@ -42,16 +42,16 @@ pipeline {
                 withSonarQubeEnv('sonar7.0') {  // Ensure 'sonar7.0' matches the SonarQube configuration in Jenkins 
                     withCredentials([string(credentialsId: 'sonartoken', variable: 'SONAR_AUTH_TOKEN')]) { 
                         sh ''' 
-                        ${SONAR_SCANNER_HOME}/bin/sonar-scanner  
-                            -Dsonar.projectKey=MavenProject \ 
-                            -Dsonar.projectName=MavenProject \ 
-                            -Dsonar.projectVersion=1.0 \ 
-                            -Dsonar.host.url=${SONAR_HOST_URL} \ 
-                            -Dsonar.login=${SONAR_AUTH_TOKEN} \ 
-                            -Dsonar.sources=src \ 
-                            -Dsonar.java.binaries=target/classes \ 
-                            -Dsonar.junit.reportsPath=target/surefire-reports \ 
-                            -Dsonar.jacoco.reportsPath=target/jacoco.exec \ 
+                        ${SONAR_SCANNER_HOME}/bin/sonar-scanner 
+                            -Dsonar.projectKey=MavenProject 
+                            -Dsonar.projectName=MavenProject  
+                            -Dsonar.projectVersion=1.0  
+                            -Dsonar.host.url=${SONAR_HOST_URL}  
+                            -Dsonar.login=${SONAR_AUTH_TOKEN}  
+                            -Dsonar.sources=src  
+                            -Dsonar.java.binaries=target/classes  
+                            -Dsonar.junit.reportsPath=target/surefire-reports  
+                            -Dsonar.jacoco.reportsPath=target/jacoco.exec  
                             -Dsonar.java.checkstyle.reportPaths=target/site/checkstyle-result.xml 
                         ''' 
                     } 
